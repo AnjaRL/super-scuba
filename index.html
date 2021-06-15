@@ -36,17 +36,19 @@
 
 
     <!--Game Page -->
-   <section id="gameScreen">  <canvas id="myCanvas" width="1400 " height="800"></canvas></section>
+   <section class="gameScreen">  <canvas id="myCanvas" width="2000 " height="1000"></canvas></section>
   
 
     <!--GameOver Page -->
 <section class="gameOverScreen">
+   <embed id="audioMain" src="./audios/gameOverMusic.mp3" autostart ="true" volume="0.05"></audio>
 <div id="gameOverText">
   <h2 id="oupsie">Oupsie... </h2>
   <p id="deadSentence">Your efforts are not enough !</br>
   As oceans will die, we all die !</p>
 </div>
 <button id ="tryAgainButton">TRY AGAIN </button>
+<button id ="backToButton">MAIN SCREEN </button>
 
     </section>
     <script src="main.js"></script>
