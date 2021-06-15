@@ -16,9 +16,9 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <li> Player can move horizontally or vertically on the screen, but cannot reach the very bottom nor the surface </li>
 <li> Cans randomly fall down from different points of the surface to the bottom</li>
 <li> Fishes randomly come from the right </li>
-<li> If the player touches 1 can, the score increases by 10</li>
+<li> If the player touches 1 can, the score increases by 5</li>
 <li> If a can is missed, it will sink and stay on the floor </li>
-<li> One tank increases the oxygen tank level by 1 </li>
+<li> One tank increases the oxygen level by 1 </li>
 <li> It's game over when 5 cans are missed or when 5 fishes are hit or when the oxygen tank is empty </li>
 </ul>
 
@@ -26,9 +26,9 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <ul>
 <li> Choose between two players to play the game </li>
 <li> Main screen with instructions, music settings </li>
-<li>Collisios</li>
+<li>Collisions with tank for gaining more oxygen</li>
 <li> Add background music : main screen, game screen, game over screen </li>
-<li> Add specific sounds : for each thing hit (can - when it is hit or when it touches the floor, fish, tank), when the tank reaches a critical level </li>
+<li> Add specific sounds : for each thing hit </li>
 <li> Speed of the game is increasing : more fishes, more cans, more tanks</li>
 </ul>
 
@@ -87,8 +87,8 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <h1> States & States Transitions</h1>
 Definition of the different states and their transition (transition functions)
 <ul>
-<li> <b> splashScreen</b> : instructions, music settings, choice between two divers ( choice of background if there is time)</li>
-<li> <b> gameScreen</b> : the canvas, scoreboard, oxygen tank level</li>
+<li> <b> mainScreen</b> : instructions, choice between two divers ( choice of background if there is time)</li>
+<li> <b> gameScreen</b> : the canvas, scoreboard, oxygen level</li>
 <li> <b> gameOverScreen</b> : background, sad audio, try again button, main screen button</li>
 </ul>
 
