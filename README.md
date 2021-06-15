@@ -19,6 +19,8 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <li> If the player touches 1 can, the score increases by 5</li>
 <li> If a can is missed, it will sink and stay on the floor </li>
 <li> One tank increases the oxygen level by 1 </li>
+<li> Every 20 points, the oxygen level decreases by 1 </li>
+<li> Every 30 points, a tank appears </li>
 <li> It's game over when 5 cans are missed or when 5 fishes are hit or when the oxygen tank is empty </li>
 </ul>
 
