@@ -98,8 +98,8 @@ let sunkCans = [];
 //----Fish variables
 
 let hits = 0;
-let fishHeight = 120;
-let fishWidth = 120;
+let fishHeight = 100;
+let fishWidth = 100;
 let fishes = [];
 let fishTypes = [fish1, fish2, fish3, fish4, fish5, fish6, fish7];
 
@@ -202,7 +202,7 @@ function isGameOver() {
 
 function fallenCans() {
   cans.forEach((can) => {
-    can.y++;
+    can.y += 5;
     if (can.y > canvasHeight) {
       can.y--;
     }
@@ -277,8 +277,9 @@ function randomFish() {
     let fishY = Math.floor(
       Math.random() * (canvasHeight - topZone + fishHeight)
     );
+    let fishX = Math.random() * (canvasWidth + 500 - canvasWidth) + canvasWidth;
     let fish = {
-      x: canvasWidth,
+      x: fishX,
       y: fishY,
       width: fishWidth,
       height: fishHeight,
@@ -294,9 +295,10 @@ function randomFish() {
 function randomCans() {
   if (cans.length < 5) {
     let can1X = Math.floor(Math.random() * (canvasWidth - can1Width));
+    let can1Y = Math.random() * 500;
     let can = {
       x: can1X,
-      y: can1Y,
+      y: -can1Y,
       width: can1Width,
       height: can1Height,
       type: canTypes[Math.floor(Math.random() * canTypes.length)],
@@ -338,46 +340,45 @@ function tankRefill() {
 function swim() {
   //console.log("swim()")
   if (isArrowRight) {
-    diverX += 20;
+    diverX += 30;
     if (diverX > rightZone) {
-      diverX -= 20;
+      diverX -= 30;
     }
     isArrowRight = false;
   }
   if (isArrowLeft) {
-    diverX -= 20;
+    diverX -= 30;
     if (diverX < 0) {
-      diverX += 20;
+      diverX += 30;
     }
     isArrowLeft = false;
   }
   if (isArrowUp) {
-    diverY -= 20;
+    diverY -= 30;
     if (diverY < topZone) {
-      diverY += 20;
+      diverY += 30;
     }
     isArrowUp = false;
   }
   if (isArrowDown) {
-    diverY += 20;
+    diverY += 30;
     if (diverY > bottomZone) {
-      diverY -= 20;
+      diverY -= 30;
     }
     isArrowDown = false;
   }
-  console.log(diverX, diverY);
 }
 
 function startLoop() {
   intervalId = setInterval(() => {
-    requestAnimationFrame(animate); /*cans move without the diver swims */
-  }, 2000); /*cans are falling every 5 sec  speed of the thing */
+    requestAnimationFrame(animate);
+  }, 4000);
 }
 
 function startAnimate() {
   intervalAnimate = setInterval(() => {
     requestAnimationFrame(draw);
-  }, 40);
+  }, 80);
 }
 
 document.addEventListener("keydown", (event) => {
