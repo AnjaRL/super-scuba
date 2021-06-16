@@ -29,6 +29,11 @@ body {
   padding: 35px;
 }
 
+#soundActivate {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 #title {
   font-family: "New Super Mario Font U", sans-serif;
   font-size: 100px;
@@ -38,7 +43,7 @@ body {
 }
 #instructions {
   font-family: "New Super Mario Font U", sans-serif;
-  font-size: 30px;
+  font-size: 36px;
   color: #dadde1;
 }
 

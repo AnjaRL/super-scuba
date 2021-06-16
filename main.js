@@ -15,7 +15,8 @@ let gameOverScreen = document.querySelector(".gameOverScreen");
 let startButton = document.querySelector("#startButton");
 let tryAgainButton = document.querySelector("#tryAgainButton");
 let backToButton = document.querySelector("#backToButton");
-//!!!!!!!!  add sound button !!!!!!!!
+let btnSound = document.querySelector("#soundActivate");
+console.log(btnSound);
 
 //----Players choice
 
@@ -134,6 +135,12 @@ function draw() {
   ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(diver, diverX, diverY, diverHeight, diverWidth);
 
+  randomFish();
+  randomCans();
+  fallenCans();
+  moveFishes();
+  tankRefill();
+
   // Draw fallen cans (refresh)
   cans.forEach((can) => {
     ctx.drawImage(can.type, can.x, can.y, can.width, can.height); // I don't do it in fallenCans as you want to print your cans when you move your diver as well (clearRect -> your cans get removed)
@@ -178,11 +185,6 @@ function draw() {
 
 function animate() {
   // Only to create new cans and change cans Y
-  randomFish();
-  randomCans();
-  fallenCans();
-  moveFishes();
-  tankRefill();
 }
 
 function isGameOver() {
@@ -200,16 +202,16 @@ function isGameOver() {
 
 function fallenCans() {
   cans.forEach((can) => {
-    can.y += can.height;
+    can.y++;
     if (can.y > canvasHeight) {
-      can.y -= can.height;
+      can.y--;
     }
   });
 }
 
 function moveFishes() {
   fishes.forEach((fish) => {
-    fish.x -= fish.width;
+    fish.x -= 10;
   });
 }
 
@@ -336,30 +338,30 @@ function tankRefill() {
 function swim() {
   //console.log("swim()")
   if (isArrowRight) {
-    diverX = diverX + 20;
+    diverX += 20;
     if (diverX > rightZone) {
-      diverX = diverX - 20;
+      diverX -= 20;
     }
     isArrowRight = false;
   }
   if (isArrowLeft) {
-    diverX = diverX - 20;
+    diverX -= 20;
     if (diverX < 0) {
-      diverX = diverX + 20;
+      diverX += 20;
     }
     isArrowLeft = false;
   }
   if (isArrowUp) {
-    diverY = diverY - 20;
+    diverY -= 20;
     if (diverY < topZone) {
-      diverY = diverY + 20;
+      diverY += 20;
     }
     isArrowUp = false;
   }
   if (isArrowDown) {
-    diverY = diverY + 20;
+    diverY += 20;
     if (diverY > bottomZone) {
-      diverY = diverY - 20;
+      diverY -= 20;
     }
     isArrowDown = false;
   }
@@ -375,7 +377,7 @@ function startLoop() {
 function startAnimate() {
   intervalAnimate = setInterval(() => {
     requestAnimationFrame(draw);
-  }, 800);
+  }, 40);
 }
 
 document.addEventListener("keydown", (event) => {
@@ -408,8 +410,6 @@ function welcomePage() {
   mainScreen.style.display = "block";
   gameScreen.style.display = "none";
   gameOverScreen.style.display = "none";
-  audioMainScreen.muted = true;
-  audioMainScreen.play();
   audioGameOver.pause();
   audioScreenGame.pause();
 }
@@ -460,7 +460,13 @@ window.addEventListener("load", (elem) => {
     welcomePage();
   });
 
-  mainScreen.addEventListener("mousemove", function () {
-    audio.play();
+  btnSound.addEventListener("click", () => {
+    if (audioMainScreen.duration > 0 && !audioMainScreen.paused) {
+      //Its playing...do your job
+      audioMainScreen.pause();
+    } else {
+      //Not playing...maybe paused, stopped or never played.
+      audioMainScreen.play();
+    }
   });
 });
