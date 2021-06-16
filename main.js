@@ -186,7 +186,6 @@ function draw() {
 function animate() {
   // Only to create new cans and change cans Y
 }
-
 function isGameOver() {
   if (sunkCans.length == 5 || hits >= 5 || diverTanks == 0) {
     clearInterval(intervalId);

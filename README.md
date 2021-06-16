@@ -27,29 +27,27 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <h1> Backlog </h1>
 <ul>
 <li> Choose between two players to play the game </li>
-<li> Main screen with instructions, music settings </li>
+<li> Main screen with instructions, music button</li>
 <li>Collisions with tank for gaining more oxygen</li>
 <li> Add background music : main screen, game screen, game over screen </li>
 <li> Add specific sounds : for each thing hit </li>
-<li> Speed of the game is increasing : more fishes, more cans, more tanks</li>
 </ul>
 
 <h1> Data structure </h1>
 
-<h2> screens.js</h2>
+<h2> main.js</h2>
 <ul>
 <li> mainScreen(){}</li>
 <li> gameScreen(){}</li>
 <li> gameOverScreen(){}</li>
 </ul>
 
-<h2> gamefeatures.js </h2>
+<h2> game features</h2>
 <ul>
 <li> startGame(){}</li>
 <li> startLoop(){}</li>
 <li> clearCanvas(){}</li>
 <li> updateCanvas(){}</li>
-<li> addBubbles(){}</li>
 <li> addFishes(){}</li>
 <li> addCans(){}</li>
 <li> tankLevel</li>
@@ -58,17 +56,16 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <li> gameOver(){}</li>
 </ul>
 
-<h2> diver.js</h2>
+<h2> diver</h2>
 <ul>
-<li> diver(){this.x; this.y; this.direction; this.size}</li>
+
 <li> draw(){}</li>
 <li> swim(){}</li>
 <li> collision(){}</li>
 </ul>
 
-<h2> can.js</h2>
+<h2> can</h2>
 <ul>
-<li> can(){this.x; this.y; this.direction; this.size}</li>
 <li> draw(){}</li>
 <li> sink(){}</li>
 </ul>
@@ -121,7 +118,10 @@ Definition of the different states and their transition (transition functions)
 
 <h2> Additional links </h2>
 <li> <b> Notions tasks list</b> </li>
-<a href="https://www.notion.so/d0f740dd395e42cb9d702cb66794b347?v=8fd16e9a4ec04c16b173d924528e3433" >Notions</a>
+<p> <a href="https://www.notion.so/d0f740dd395e42cb9d702cb66794b347?v=8fd16e9a4ec04c16b173d924528e3433" >Notions</a> </p>
 
-<li> <b> Slides</b> </li>
-<a href="https://slides.com"></a>
+<li> <b> Wireframe</b> </li>
+<p><a href=https://anja38441.invisionapp.com/freehand/first-game-YXp92D8TB>Wireframe</a></p>
+</br>
+<li> <b> Slides</b>  </li>
+<p><a href="https://docs.google.com/presentation/d/1CRr2alYN7oQ0NOeG6zYvAc4ad_atMyjj2ZSb3UtXBK8/edit?usp=sharing"> Google Slides</a></p>

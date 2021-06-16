@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  vertical-align: middle;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -96,9 +97,8 @@ body {
 .gameOverScreen {
   width: 2000px;
   height: 1000px;
-  background-image: url(./img/gameOverScreen.jpg);
+  background-image: url(./img/gameOverScreen.png);
   background-size: 100%;
-
   background-position: center;
   border: 1px solid #dadde1;
   border-radius: 10px;
