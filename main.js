@@ -16,7 +16,6 @@ let startButton = document.querySelector("#startButton");
 let tryAgainButton = document.querySelector("#tryAgainButton");
 let backToButton = document.querySelector("#backToButton");
 let btnSound = document.querySelector("#soundActivate");
-console.log(btnSound);
 
 //----Players choice
 
@@ -55,6 +54,7 @@ let tank1 = new Image();
 tank1.src = "./img/tank1.png";
 
 //----Audio
+
 let audioMainScreen = new Audio("./audios/mainScreenMusic.mp3");
 audioMainScreen.volume = 0.03;
 let audioScreenGame = new Audio("./audios/screenGameMusic.mp3");
@@ -69,6 +69,7 @@ let audioTankHit = new Audio("./audios/scubaBreathing.mp3");
 audioTankHit.volume = 0.2;
 
 //----Diver variables
+
 let diverTanks = 5; // tanks  here represent diverlives
 let canDiverLoseTank = true;
 let diver = girl;
@@ -84,6 +85,7 @@ let isArrowUp = false;
 let isArrowDown = false;
 
 //----Can variables
+
 let can1Y = 50;
 can1Height = 80;
 can1Width = 80;
@@ -141,12 +143,12 @@ function draw() {
   moveFishes();
   tankRefill();
 
-  // Draw fallen cans (refresh)
+  //----Draw fallen cans (refresh)
   cans.forEach((can) => {
     ctx.drawImage(can.type, can.x, can.y, can.width, can.height); // I don't do it in fallenCans as you want to print your cans when you move your diver as well (clearRect -> your cans get removed)
   });
 
-  // Draw fishes
+  //----Draw fishes
   fishes.forEach((fish) => {
     ctx.drawImage(fish.type, fish.x, fish.y, fish.width, fish.height);
   });
@@ -162,7 +164,7 @@ function draw() {
     );
   });
 
-  //Draw tanks
+  //----Draw tanks
   tanksArr.forEach((tank) => {
     ctx.drawImage(tank.type, tank.x, tank.y, tank.width, tank.height);
   });
@@ -183,9 +185,8 @@ function draw() {
   ctx.fillText(`Oxygen: ${diverTanks}`, 550, 40);
 }
 
-function animate() {
-  // Only to create new cans and change cans Y
-}
+//----GAME OVER
+
 function isGameOver() {
   if (sunkCans.length == 5 || hits >= 5 || diverTanks == 0) {
     clearInterval(intervalId);
@@ -198,7 +199,7 @@ function isGameOver() {
     gameOverScreen.style.display = "block";
   }
 }
-
+//---- Cans falling from the top
 function fallenCans() {
   cans.forEach((can) => {
     can.y += 5;
@@ -207,7 +208,7 @@ function fallenCans() {
     }
   });
 }
-
+//---- Cans moving
 function moveFishes() {
   fishes.forEach((fish) => {
     fish.x -= 10;
@@ -235,7 +236,7 @@ function collisions() {
     }
   }
 
-  // collisions with fishes - fish cannot be touched twice
+  //----collisions with fishes - fish cannot be touched twice
   for (let i = fishes.length - 1; i >= 0; i--) {
     if (
       fishes[i].x >= diverX &&
@@ -252,7 +253,7 @@ function collisions() {
     }
   }
 
-  // collisions with tanks
+  //----collisions with tanks
   for (let i = tanksArr.length - 1; i >= 0; i--) {
     // if collision the tank disappear and tanks in scoreboard increases by 1,
     if (
@@ -270,7 +271,9 @@ function collisions() {
   }
 }
 
-// display random fish
+//-----DISPLAY ELEMENTS
+
+//----display random fish
 function randomFish() {
   if (fishes.length < 5) {
     let fishY = Math.floor(
@@ -335,7 +338,7 @@ function tankRefill() {
   }
 }
 
-// function for makin the diver move
+//----function for makin the diver move
 function swim() {
   //console.log("swim()")
   if (isArrowRight) {
@@ -368,17 +371,13 @@ function swim() {
   }
 }
 
-function startLoop() {
-  intervalId = setInterval(() => {
-    requestAnimationFrame(animate);
-  }, 4000);
-}
-
 function startAnimate() {
   intervalAnimate = setInterval(() => {
     requestAnimationFrame(draw);
   }, 80);
 }
+
+//---- Keys addEventListeners
 
 document.addEventListener("keydown", (event) => {
   //Arrow keys
@@ -405,6 +404,8 @@ document.addEventListener("keydown", (event) => {
   }
   draw();
 });
+
+//---- functions for screens
 
 function welcomePage() {
   mainScreen.style.display = "block";
@@ -434,10 +435,10 @@ function start() {
   gameScreen.style.display = "block";
   gameOverScreen.style.display = "none";
   draw();
-  startLoop();
   startAnimate();
 }
 
+//----EventListeners-----\\
 window.addEventListener("load", (elem) => {
   welcomePage();
 
@@ -451,6 +452,7 @@ window.addEventListener("load", (elem) => {
   startButton.addEventListener("click", () => {
     start();
   });
+
   tryAgainButton.addEventListener("click", () => {
     start();
     audioGameOver.pause();
