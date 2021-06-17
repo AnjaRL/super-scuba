@@ -56,11 +56,11 @@ tank1.src = "./img/tank1.png";
 //----Audio
 
 let audioMainScreen = new Audio("./audios/mainScreenMusic.mp3");
-audioMainScreen.volume = 0.03;
+audioMainScreen.volume = 0.1;
 let audioScreenGame = new Audio("./audios/screenGameMusic.mp3");
-audioScreenGame.volume = 0.8;
+audioScreenGame.volume = 0.3;
 let audioGameOver = new Audio("./audios/gameOverMusic.mp3");
-audioGameOver.volume = 0.07;
+audioGameOver.volume = 0.1;
 let audioCansHit = new Audio("./audios/kidsCheering.mp3");
 audioCansHit.volume = 0.1;
 let audioFishHit = new Audio("./audios/fishHit.mp3");
