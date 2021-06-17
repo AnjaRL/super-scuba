@@ -68,26 +68,29 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <ul>
 <li> draw(){}</li>
 <li> sink(){}</li>
+<li> collision(){}</li>
 </ul>
 
 <h2> fish.js</h2>
 <ul>
-<li> fish(){this.x; this.y; this.direction; this.size}</li>
+<li> fish(){}</li>
 <li> draw(){}</li>
 <li> move(){}</li>
+<li> collision(){}</li>
 </ul>
 
 <h2> tank.js</h2>
 <ul>
-<li> tank(){this.x; this.y; this.direction; this.size}</li>
+<li> tank(){}</li>
 <li> draw(){}</li>
+<li> collision(){}</li>
 </ul>
 
 <h1> States & States Transitions</h1>
 Definition of the different states and their transition (transition functions)
 <ul>
-<li> <b> mainScreen</b> : instructions, choice between two divers ( choice of background if there is time)</li>
-<li> <b> gameScreen</b> : the canvas, scoreboard, oxygen level</li>
+<li> <b> mainScreen</b> : instructions, sound button to mute/unmute choice between two divers</li>
+<li> <b> gameScreen</b> : the canvas, background sound, scoreboard, fishes hit, oxygen level</li>
 <li> <b> gameOverScreen</b> : background, sad audio, try again button, main screen button</li>
 </ul>
 
@@ -110,7 +113,6 @@ Definition of the different states and their transition (transition functions)
 <li> addFishes(){}</li>
 <li> addCans(){}</li>
 <li> tank increaseTankLevel(){}</li>
-<li> game startLoop(){} </li>
 <li> game detectCollision(){}</li>
 <li> gameOver(){}</li>
 
