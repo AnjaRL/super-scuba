@@ -145,7 +145,7 @@ function draw() {
 
   //----Draw fallen cans (refresh)
   cans.forEach((can) => {
-    ctx.drawImage(can.type, can.x, can.y, can.width, can.height); // I don't do it in fallenCans as you want to print your cans when you move your diver as well (clearRect -> your cans get removed)
+    ctx.drawImage(can.type, can.x, can.y, can.width, can.height); // don't do it in fallenCans as I want to print cans when move diver as well (clearRect -> your cans get removed)
   });
 
   //----Draw fishes
@@ -293,7 +293,7 @@ function randomFish() {
   }
 }
 
-// display random can
+//----display random can
 function randomCans() {
   if (cans.length < 5) {
     let can1X = Math.floor(Math.random() * (canvasWidth - can1Width));
@@ -310,7 +310,7 @@ function randomCans() {
   }
 }
 
-// display random tank
+//----display random tank
 // diver loses 1 oxygen every 20points,
 // every 30 points a tank appears, the diver needs to catch it to increase the oxygen level, and meanwhile every 30 points the diver can loose a tank
 function tankRefill() {
