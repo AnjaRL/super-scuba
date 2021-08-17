@@ -29,8 +29,8 @@ So, your mission here is to catch as many cans as possible, that have been throw
 <li> Choose between two players to play the game </li>
 <li> Main screen with instructions, music button</li>
 <li>Collisions with tank for gaining more oxygen</li>
-<li> Add background music : main screen, game screen, game over screen </li>
-<li> Add specific sounds : for each thing hit </li>
+<li> Background music : main screen, game screen, game over screen </li>
+<li> Specific sounds : for each thing hit </li>
 </ul>
 
 <h1> Data structure </h1>
